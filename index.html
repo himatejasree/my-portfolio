@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hima Teja Sree - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                        accent: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .skill-card {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+        }
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        .education-card {
+            background: white;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        /* Media Queries for Enhanced Responsiveness */
+        
+        /* Extra Small Devices (phones, 320px and up) */
+        @media (min-width: 320px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+            
+            .hero-gradient {
+                padding-top: 6rem;
+                padding-bottom: 4rem;
+            }
+        }
+
+        /* Small Devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                line-height: 3rem;
+            }
+            
+            .grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Medium Devices (tablets, 768px and up) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+                line-height: 4rem;
+            }
+            
+            .hero-gradient {
+                padding-top: 8rem;
+                padding-bottom: 6rem;
+            }
+            
+            .grid {
+                gap: 2rem;
+            }
+            
+            .education-card,
+            .project-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Large Devices (desktops, 992px and up) */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            h1 {
+                font-size: 4.5rem;
+                line-height: 5rem;
+            }
+            
+            .hero-gradient {
+                padding-top: 10rem;
+                padding-bottom: 8rem;
+            }
+            
+            .grid {
+                gap: 2.5rem;
+            }
+        }
+
+        /* Extra Large Devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            h1 {
+                font-size: 5.5rem;
+                line-height: 6rem;
+            }
+            
+            .hero-gradient {
+                padding-top: 12rem;
+                padding-bottom: 10rem;
+            }
+        }
+
+        /* 2XL Devices (larger desktops, 1400px and up) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+            
+            h1 {
+                font-size: 6.5rem;
+                line-height: 7rem;
+            }
+        }
+
+        /* Landscape Orientation Adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero-gradient {
+                min-height: 100vh;
+                padding-top: 5rem;
+                padding-bottom: 3rem;
+            }
+            
+            .min-h-screen {
+                min-height: 100vh;
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .animate-float {
+                animation: float 2.5s ease-in-out infinite;
+            }
+        }
+
+        /* Reduced Motion Preferences */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-float {
+                animation: none;
+            }
+            
+            .scroll-smooth {
+                scroll-behavior: auto;
+            }
+            
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .bg-gray-50 {
+                background-color: #1a1a1a;
+            }
+            
+            .bg-white {
+                background-color: #2d2d2d;
+            }
+            
+            .text-gray-800 {
+                color: #e5e5e5;
+            }
+            
+            .text-gray-600 {
+                color: #a0a0a0;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .hero-gradient,
+            .gradient-bg {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .education-card,
+            .project-card {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #ccc;
+            }
+            
+            .animate-float {
+                animation: none;
+            }
+            
+            #back-to-top,
+            #mobile-menu-btn {
+                display: none !important;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 scroll-smooth">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Devabhaktuni HimaTejaSree
+                </h1>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="#education" class="text-gray-700 hover:text-primary transition-colors">Education</a>
+                    <a href="#internships" class="text-gray-700 hover:text-primary transition-colors">Internships</a>
+                    <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary transition-colors">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="#education" class="text-gray-700 hover:text-primary transition-colors">Education</a>
+                    <a href="#internships" class="text-gray-700 hover:text-primary transition-colors">Internships</a>
+                    <a href="#projects" class="text-gray-700 hover:text-primary transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary transition-colors">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <img
+    src="images/buddy.jpg"
+    alt="Devabhaktuni HimaTejaSree"
+    class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full mx-auto mb-6 border-4 border-white shadow-2xl animate-float object-cover">
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4">
+                    Devabhaktuni HimaTejaSree
+                </h1>
+                <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6">
+                    Computer Science & Engineering Student
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto px-4">
+                    Passionate about creating innovative solutions and building beautiful, user-friendly applications. 
+                    Always eager to learn new technologies and take on challenging projects.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 px-4">
+                    <a href="#contact" class="bg-white text-primary px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg text-sm sm:text-base">
+                        Get In Touch
+                    </a>
+                    <a href="#internships" class="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors text-sm sm:text-base">
+                        View Internships
+                    </a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors text-sm sm:text-base">
+                        View Projects
+                    </a>
+                </div>
+                <div class="flex justify-center space-x-4 sm:space-x-6">
+                                         <a href="mailto:himatejasree@gmail.com" class="text-white hover:text-yellow-300 transition-colors" title="Email">
+                         <i class="fas fa-envelope text-xl sm:text-2xl"></i>
+                     </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-white hover:text-yellow-300 transition-colors" title="LinkedIn">
+                        <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="text-white hover:text-yellow-300 transition-colors" title="GitHub">
+                        <i class="fab fa-github text-xl sm:text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-12 sm:py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <img src="images/hima.jpg" alt="Devabhaktuni HimaTejaSree" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-primary shadow-xl object-cover">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Education
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+                                 <!-- Education Card 1 - B.Tech -->
+                 <div class="education-card rounded-2xl p-4 sm:p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                     <div class="flex items-center mb-4">
+                         <i class="fas fa-graduation-cap text-2xl sm:text-3xl mr-3 sm:mr-4 text-primary"></i>
+                         <div>
+                             <h3 class="text-lg sm:text-xl font-bold">Bachelor of Technology</h3>
+                             <p class="text-gray-600 text-sm sm:text-base">Computer Science & Engineering</p>
+                         </div>
+                     </div>
+                     <p class="text-base sm:text-lg font-semibold mb-2">Velagapudi Ramakrishna Siddhartha Engineering College</p>
+                     <p class="text-gray-600 mb-3 text-sm sm:text-base">Aug 2025 - Dec 2025</p>
+                     <p class="text-primary text-base sm:text-lg font-semibold">CGPA: 8.59</p>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Data Structures</span>
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Algorithms</span>
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Database</span>
+                     </div>
+                 </div>
+
+                                 <!-- Education Card 2 - Higher Secondary -->
+                 <div class="education-card rounded-2xl p-4 sm:p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                     <div class="flex items-center mb-4">
+                         <i class="fas fa-award text-2xl sm:text-3xl mr-3 sm:mr-4 text-primary"></i>
+                         <div>
+                             <h3 class="text-lg sm:text-xl font-bold">Higher Secondary Education</h3>
+                             <p class="text-gray-600 text-sm sm:text-base">Science Stream</p>
+                         </div>
+                     </div>
+                     <p class="text-base sm:text-lg font-semibold mb-2">Sri Chaitanya Junior College</p>
+                     <p class="text-gray-600 mb-3 text-sm sm:text-base">June 2021 - April 2023</p>
+                     <p class="text-primary text-base sm:text-lg font-semibold">Percentage: 93.5%</p>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Mathematics</span>
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Physics</span>
+                         <span class="bg-primary/10 text-primary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Chemistry</span>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section id="internships" class="py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Internships
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+                <div class="education-card rounded-2xl p-4 sm:p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl sm:text-3xl mr-3 sm:mr-4 text-primary"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold">Software Development Intern</h3>
+                            <p class="text-gray-600 text-sm sm:text-base">Yuga Yatra Private Limited</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
+                        <li>Assisted in application development, testing, and debugging activities.</li>
+                        <li>Worked with frontend, backend, and database technologies in a team environment.</li>
+                    </ul>
+                </div>
+
+                <div class="education-card rounded-2xl p-4 sm:p-6 text-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-code text-2xl sm:text-3xl mr-3 sm:mr-4 text-primary"></i>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold">SAP ABAP Trainee</h3>
+                            <p class="text-gray-600 text-sm sm:text-base">Naxrita and Emax Technologies</p>
+                        </div>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 text-sm sm:text-base">
+                        <li>Learned SAP ABAP, Data Dictionary, Open SQL, internal tables, and debugging.</li>
+                        <li>Developed reports using modularization, database tables, views, and ALV concepts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 sm:py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                <div class="project-card rounded-2xl p-4 sm:p-6 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl sm:text-3xl mr-3 sm:mr-4"></i>
+                        <h3 class="text-lg sm:text-xl font-bold">IoT-Enabled Women Safety ID Card</h3>
+                    </div>
+                    <p class="text-white/90 mb-4 text-sm sm:text-base">
+                        Designed a safety card that sends SOS alerts with live GPS location and enables emergency voice calling without smartphone or cloud dependency.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">ESP8266</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">SIM7672S</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">IoT</span>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-2xl p-4 sm:p-6 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-store text-2xl sm:text-3xl mr-3 sm:mr-4"></i>
+                        <h3 class="text-lg sm:text-xl font-bold">E-Commerce Platform</h3>
+                    </div>
+                    <p class="text-white/90 mb-4 text-sm sm:text-base">
+                        Built a full-stack platform with authentication, product, and order management, along with REST APIs and an admin dashboard with role-based access.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Angular</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Node.js</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Express.js</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-2xl p-4 sm:p-6 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-mug-hot text-2xl sm:text-3xl mr-3 sm:mr-4"></i>
+                        <h3 class="text-lg sm:text-xl font-bold">Cafe Management System</h3>
+                    </div>
+                    <p class="text-white/90 mb-4 text-sm sm:text-base">
+                        Developed a web application for managing menus, users, and customer orders with CRUD operations using Django models, views, and templates.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Python</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Django</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="project-card rounded-2xl p-4 sm:p-6 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line text-2xl sm:text-3xl mr-3 sm:mr-4"></i>
+                        <h3 class="text-lg sm:text-xl font-bold">Sales Performance Dashboard</h3>
+                    </div>
+                    <p class="text-white/90 mb-4 text-sm sm:text-base">
+                        Created an interactive dashboard to analyze revenue, sales, and profit trends using Power Query, DAX measures, and dynamic filters for business insights.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">Power BI</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">SQL</span>
+                        <span class="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">DAX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 sm:py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Skills
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                <!-- HTML5 Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-html5 text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">HTML5</h3>
+                        <p class="text-sm text-gray-600">Semantic, accessible markup and SEO tags.</p>
+                    </div>
+                </div>
+
+                <!-- CSS3 Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-css3-alt text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">CSS3</h3>
+                        <p class="text-sm text-gray-600">Responsive layouts with Flexbox/Grid and animations.</p>
+                    </div>
+                </div>
+
+                <!-- JavaScript Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-js-square text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">JavaScript</h3>
+                        <p class="text-sm text-gray-600">ES6+, modules, async patterns, performance.</p>
+                    </div>
+                </div>
+
+                <!-- Python Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-python text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Python</h3>
+                        <p class="text-sm text-gray-600">Data tasks, ML practice projects, scripting.</p>
+                    </div>
+                </div>
+
+                <!-- SQL Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-database text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">SQL</h3>
+                        <p class="text-sm text-gray-600">Queries, views, basic optimization, reporting.</p>
+                    </div>
+                </div>
+
+                <!-- Java Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-java text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Java</h3>
+                        <p class="text-sm text-gray-600">Core Java, simple web/service flows and OOP.</p>
+                    </div>
+                </div>
+
+                <!-- Git & GitHub Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center">
+                            <i class="fab fa-github text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Git & GitHub</h3>
+                        <p class="text-sm text-gray-600">Version control, branches, PRs, collaboration.</p>
+                    </div>
+                </div>
+
+                <!-- SAP Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-layer-group text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">SAP</h3>
+                        <p class="text-sm text-gray-600">ERP concepts, reports, and business process understanding.</p>
+                    </div>
+                </div>
+
+                <!-- OOP - SAP Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-cubes text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">OOP - SAP</h3>
+                        <p class="text-sm text-gray-600">Object-oriented programming concepts applied in SAP development.</p>
+                    </div>
+                </div>
+
+                <!-- S4 HANA Card -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-database text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">S4 HANA</h3>
+                        <p class="text-sm text-gray-600">ERP and data management concepts in S/4HANA environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="gradient-bg text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Get In Touch</h3>
+                    <p class="text-white/80 mb-4 sm:mb-6 max-w-md text-sm sm:text-base">
+                        I'm always open to discussing new opportunities, interesting projects, 
+                        or just having a chat about technology and innovation.
+                    </p>
+                    <div class="space-y-3 sm:space-y-4">
+                                                 <div class="flex items-center">
+                             <i class="fas fa-envelope text-lg sm:text-xl mr-3 sm:mr-4 text-yellow-300"></i>
+                             <a href="mailto:himatejasree@gmail.com" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">
+                                 himatejasree@gmail.com
+                             </a>
+                         </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-lg sm:text-xl mr-3 sm:mr-4 text-yellow-300"></i>
+                            <a href="tel:+919393442228" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">
+                                +91 9393442228
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-lg sm:text-xl mr-3 sm:mr-4 text-yellow-300"></i>
+                            <span class="text-sm sm:text-base">Vijayawada, Andhra Pradesh, India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Quick Links</h4>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li><a href="#home" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">Home</a></li>
+                        <li><a href="#education" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">Education</a></li>
+                        <li><a href="#projects" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">Projects</a></li>
+                        <li><a href="#skills" class="hover:text-yellow-300 transition-colors text-sm sm:text-base">Skills</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Connect With Me</h4>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="https://linkedin.com" target="_blank" class="bg-white/20 p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors">
+                            <i class="fab fa-linkedin-in text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="bg-white/20 p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="bg-white/20 p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="bg-white/20 p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors">
+                            <i class="fab fa-instagram text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+                <p class="text-white/80 text-sm sm:text-base">
+                    © 2024 Hima Teja Sree. All rights reserved. | Designed with ❤️ using TailwindCSS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-secondary transition-colors opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        const animatedElements = document.querySelectorAll('.education-card, .project-card, .skill-card');
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add typing effect to hero title
+        const heroTitle = document.querySelector('#home h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing effect when page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
